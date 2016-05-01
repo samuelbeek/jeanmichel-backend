@@ -33,18 +33,16 @@ app.post('/search', function (req, res) {
 
 });
 
-app.post('/shows', function (req, res) {
 
-  // this american life : 27
-  // 99% invisible: 11
-  var showArray = req.body.shows
-  console.log(showArray)
+// gets shows with id's in the params
+app.get('/shows', function (req, res) {
+
+  var showArray = req.query.shows.split(',')
   // create a promises array in which we will return all the shows
   var promises = []
 
   // loop through all the shows and return their information
   _.each(showArray, function(showId){
-    console.log("getting show id:", showId);
     promises.push(
       new Promise(function (resolve, reject) {
         audiosearch.getShow(showId).then(function (results) {
@@ -57,6 +55,16 @@ app.post('/shows', function (req, res) {
   // if all promises succeeded, send them to thte client
   Promise.all(promises).then(function(resolvedPromises) {
     res.send(resolvedPromises);
+  });
+
+});
+
+// get episode by id
+app.get('/episodes/:episodeId', function(req, res) {
+
+  var episodeId = req.params.episodeId;
+  audiosearch.getEpisode(episodeId).then(function(results){
+      res.send(results);
   });
 
 });
