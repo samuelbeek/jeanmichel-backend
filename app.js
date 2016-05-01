@@ -33,14 +33,32 @@ app.post('/search', function (req, res) {
 
 });
 
-app.get('/science', function (req, res) {
+app.post('/shows', function (req, res) {
 
   // this american life : 27
   // 99% invisible: 11
+  var showArray = req.body.shows
+  console.log(showArray)
+  // create a promises array in which we will return all the shows
+  var promises = []
 
-  audiosearch.getShow(11).then(function (results) {
-    res.send(results);
+  // loop through all the shows and return their information
+  _.each(showArray, function(showId){
+    console.log("getting show id:", showId);
+    promises.push(
+      new Promise(function (resolve, reject) {
+        audiosearch.getShow(showId).then(function (results) {
+          resolve(results);
+        });
+      })
+    );
   });
+
+  // if all promises succeeded, send them to thte client
+  Promise.all(promises).then(function(resolvedPromises) {
+    res.send(resolvedPromises);
+  });
+
 });
 
 app.listen(3000, function () {
