@@ -32,6 +32,10 @@ app.post('/search', function (req, res) {
 });
 
 app.get('/science', function (req, res) {
+
+  // this american life : 27
+  // 99% invisible: 11
+
   audiosearch.getShow(11).then(function (results) {
     res.send(results);
   });
