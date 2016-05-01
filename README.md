@@ -1,5 +1,7 @@
 # Jean Michel Backend
 
+Wrapper around the [audiosear.ch](https://www.audiosear.ch) API to have curated podcast content. Work in progress. 
+
 ## Installation & Usage
 run `npm install` to install dependencies
 
