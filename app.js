@@ -59,6 +59,47 @@ app.get('/shows', function (req, res) {
 
 });
 
+// gets shows's episodes with id's in the params
+app.get('/shows/episodes', function (req, res) {
+
+  var showArray = req.query.shows.split(',')
+  // create a promises array in which we will return all the shows
+  var promises = []
+
+  // loop through all the shows and return their information
+  _.each(showArray, function(showId){
+    promises.push(
+      new Promise(function (resolve, reject) {
+        audiosearch.getShow(showId).then(function (show) {
+          var latestIds = show.episode_ids.slice(0,10)
+          var episodes = []
+          _.each(latestIds, function(episodeId){
+            episodes.push(
+              new Promise(function(resolve, reject) {
+                audiosearch.getEpisode(episodeId).then(function(episode){
+                  resolve(episode)
+                });
+              })
+            );
+
+          })
+
+          Promise.all(episodes).then(function(resolvedPromises) {
+            res.send(resolvedPromises);
+          });
+        });
+      })
+    );
+  });
+
+  // if all promises succeeded, send them to thte client
+  Promise.all(promises).then(function(resolvedPromises) {
+    res.send(resolvedPromises);
+  });
+
+});
+
+
 // get episode by id
 app.get('/episodes/:episodeId', function(req, res) {
 
@@ -70,5 +111,5 @@ app.get('/episodes/:episodeId', function(req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('🤖','App listening on port 3000!');
+  console.log('🤖',' - App listening on port 3000!');
 });
