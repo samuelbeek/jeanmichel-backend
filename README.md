@@ -70,7 +70,7 @@ __Optional Query Parameters__
 
 __Example Response__
 
-```
+```json
 [
   {
     "id": 27,
