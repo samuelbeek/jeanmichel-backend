@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
+var Promise = require('promise');
+var _ = require('lodash');
 
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that
