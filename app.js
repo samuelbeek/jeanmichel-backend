@@ -15,6 +15,8 @@ db.once('open', function() {
 // parsing
 app.use(bodyParser.json())
 
+// models
+var Podcast = require('./models/podcast');
 
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that
@@ -30,6 +32,51 @@ app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
   res.send('Hello world');
+});
+
+app.get('/podcast', function (req, res) {
+  Podcast.find({ title: /^S/ }).then(function(results){
+    console.log(results);
+    res.send(results)
+  });
+});
+
+app.post('/podcast', function (req, res) {
+  var podcast = new Podcast({ title: 'Super podcast'})
+  podcast.save(function (err, result) {
+    if (err) return console.error(err);
+    res.send(result.title)
+  });
+});
+
+app.post('/show', function (req, res) {
+  var title = req.body.title;
+  var description = req.body.description;
+  var imageUrl = req.body.imageUrl;
+  var url = req.body.url;
+  var audioSearchId = req.body.audioSearchId;
+
+  var show = new Show({title: title, description: description, imageUrl: imageUrl, url: url, audioSearchId: audioSearchId});
+  show.save(function(err, result){
+    if (err) return console.error(err);
+    res.send(result.toJSON());
+  });
+});
+
+
+app.post('/category', function (req, res) {
+
+  var title = req.body.title;
+  var description = req.body.description;
+  var imageUrl = req.body.imageUrl;
+  var author = req.body.author;
+
+  var category = new Category({title: title, description: description, imageUrl: imageUrl, author: author})
+  category.save(function(err, result){
+    if (err) return console.log(err);
+    res.send(result.toJSON());
+  });
+
 });
 
 // returns name property
