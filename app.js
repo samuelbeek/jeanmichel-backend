@@ -17,18 +17,17 @@ app.use(bodyParser.json())
 
 // models
 var Podcast = require('./models/podcast');
+var Show = require('./models/show');
+var Category = require('./models/category');
 
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that
 var Audiosearch = require('audiosearch-client-node');
-
 var appId = "8baa461e60a3fb576151e54f327ff76e8d9169e10e4ae36f82e4783c4c02b767";
 var appSecret = "d9dd62f9f6aa29735077352dbac0f9a70f7cbeca72877ae27b04a21151e56c51";
-
 var audiosearch = new Audiosearch(appId, appSecret);
 
 
-app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
   res.send('Hello world');
@@ -84,7 +83,7 @@ app.post('/', function (req, res) {
   res.send(req.body.name);
 });
 
-app.post('/search', function (req, res) {
+app.post('/audiosearch/search', function (req, res) {
   var query = req.body.query
   audiosearch.searchEpisodes(query).then(function (results) {
     res.send(results);
@@ -94,7 +93,7 @@ app.post('/search', function (req, res) {
 
 
 // gets shows with id's in the params
-app.get('/shows', function (req, res) {
+app.get('/audiosearch/shows', function (req, res) {
 
   var showArray = req.query.shows.split(',')
   // create a promises array in which we will return all the shows
@@ -119,7 +118,7 @@ app.get('/shows', function (req, res) {
 });
 
 // gets shows's episodes with id's in the params
-app.get('/shows/episodes', function (req, res) {
+app.get('/audiosearch/shows/episodes', function (req, res) {
 
   var showArray = req.query.shows.split(',')
   // create a promises array in which we will return all the shows
@@ -160,7 +159,7 @@ app.get('/shows/episodes', function (req, res) {
 
 
 // get episode by id
-app.get('/episodes/:episodeId', function(req, res) {
+app.get('/audiosearch/episodes/:episodeId', function(req, res) {
 
   var episodeId = req.params.episodeId;
   audiosearch.getEpisode(episodeId).then(function(results){
