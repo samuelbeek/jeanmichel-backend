@@ -3,6 +3,18 @@ var app = express();
 var bodyParser = require('body-parser')
 var Promise = require('promise');
 var _ = require('lodash');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("connected");
+});
+
+// parsing
+app.use(bodyParser.json())
+
 
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that
