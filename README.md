@@ -7,6 +7,8 @@ run `npm install` to install dependencies
 
 run `nodemon app.js` to start the server 
 
+go to `jeanmichel-data` or another mongo directory and run `sudo mongod`
+
 
 ## Endpoints 
 ### Get Episode By Id 

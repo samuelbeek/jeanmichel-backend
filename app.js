@@ -34,8 +34,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/podcast', function (req, res) {
-  Podcast.find({ title: /^S/ }).then(function(results){
-    console.log(results);
+  Podcast.find().then(function(results){
     res.send(results)
   });
 });
@@ -63,6 +62,13 @@ app.post('/show', function (req, res) {
 });
 
 
+app.get('/categopry', function (req, rest) {
+  Category.find().then(function(results){
+    console.log(results)
+    res.send(results);
+  });
+});
+
 app.post('/category', function (req, res) {
 
   var title = req.body.title;
@@ -73,10 +79,12 @@ app.post('/category', function (req, res) {
   var category = new Category({title: title, description: description, imageUrl: imageUrl, author: author})
   category.save(function(err, result){
     if (err) return console.log(err);
+    console.log("yes", result);
     res.send(result.toJSON());
   });
 
 });
+
 
 // returns name property
 app.post('/', function (req, res) {
@@ -94,6 +102,8 @@ app.post('/audiosearch/search', function (req, res) {
 
 // gets shows with id's in the params
 app.get('/audiosearch/shows', function (req, res) {
+
+  console.log("fetching podcasts");
 
   var showArray = req.query.shows.split(',')
   // create a promises array in which we will return all the shows
