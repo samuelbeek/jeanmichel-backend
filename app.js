@@ -39,6 +39,13 @@ app.get('/podcast', function (req, res) {
   });
 });
 
+app.get('/category', function (req, res) {
+  Category.find().then(function(results){
+    console.log(results)
+    res.send(results);
+  });
+});
+
 app.post('/podcast', function (req, res) {
   var podcast = new Podcast({ title: 'Super podcast'})
   podcast.save(function (err, result) {
@@ -46,6 +53,7 @@ app.post('/podcast', function (req, res) {
     res.send(result.title)
   });
 });
+
 
 app.post('/show', function (req, res) {
   var title = req.body.title;
@@ -62,12 +70,6 @@ app.post('/show', function (req, res) {
 });
 
 
-app.get('/categopry', function (req, rest) {
-  Category.find().then(function(results){
-    console.log(results)
-    res.send(results);
-  });
-});
 
 app.post('/category', function (req, res) {
 

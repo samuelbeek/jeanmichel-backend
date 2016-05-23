@@ -408,7 +408,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Science\\",\\"description\\":\\"A collection of all the good science podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Science 2\\",\\"description\\":\\"A collection of all the good science podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">2</attribute>
         <attribute name="name" type="string">Post Category</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
@@ -437,7 +437,7 @@
     </object>
     <object type="LMREQUEST" id="z136">
         <attribute name="uuid" type="string">AA42F335-86D8-48AD-8473-7DDABCA0A871</attribute>
-        <attribute name="url" type="string">http://localhost:3000/categopry</attribute>
+        <attribute name="url" type="string">http://localhost:3000/category</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -449,7 +449,7 @@
         <attribute name="name" type="string">Get Categories</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z137 z138"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z138 z137"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z137">
         <attribute name="value" type="string"></attribute>
