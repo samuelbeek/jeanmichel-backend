@@ -39,19 +39,20 @@ app.get('/podcast', function (req, res) {
   });
 });
 
-app.get('/category', function (req, res) {
-  Category.find().then(function(results){
-    console.log(results)
-    res.send(results);
-  });
-});
 
-app.post('/podcast', function (req, res) {
+function createPodcast(req, res, next) {
   var podcast = new Podcast({ title: 'Super podcast'})
   podcast.save(function (err, result) {
     if (err) return console.error(err);
-    res.send(result.title)
+    req.podcast = result;
+    next()
   });
+}
+
+
+
+app.post('/podcast', createPodcast , function (req, res) {
+  res.send(req.podcast)
 });
 
 
@@ -71,6 +72,14 @@ app.post('/show', function (req, res) {
 
 
 
+app.get('/category', function (req, res) {
+  Category.find().then(function(results){
+    console.log(results)
+    res.send(results);
+  });
+});
+
+
 app.post('/category', function (req, res) {
 
   var title = req.body.title;
@@ -84,6 +93,28 @@ app.post('/category', function (req, res) {
     console.log("yes", result);
     res.send(result.toJSON());
   });
+
+});
+
+app.get('/show', function(req, res) {
+  Show.find().then(function(results){
+    console.log(results)
+    res.send(results);
+  });
+});
+
+app.post('/show/:showId/podcast', createPodcast, function(req, res) {
+
+  var showId = req.params.showId;
+
+  Show.findOne({_id: showId}, function (err, show) {
+      show.podcasts.push(req.podcast)
+      show.save(function(err, result){
+        if (err) return console.error(err);
+        res.send(result.toJSON());
+      });
+  });
+
 
 });
 
