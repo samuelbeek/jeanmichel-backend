@@ -5,7 +5,9 @@ var categorySchema = Schema({
   title: String,
   description: String,
   imageUrl: String,
+  iconUrl: String,
   author: String,
+  color: String,
   shows: [{ type: Schema.Types.ObjectId, ref: 'Show' }]
 });
 

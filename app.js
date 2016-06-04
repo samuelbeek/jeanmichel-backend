@@ -86,8 +86,10 @@ app.post('/category', function (req, res) {
   var description = req.body.description;
   var imageUrl = req.body.imageUrl;
   var author = req.body.author;
+  var color = req.body.color;
+  var iconUrl = req.body.iconUrl;
 
-  var category = new Category({title: title, description: description, imageUrl: imageUrl, author: author})
+  var category = new Category({title: title, description: description, imageUrl: imageUrl, iconUrl: iconUrl, color: color, author: author})
   category.save(function(err, result){
     if (err) return console.log(err);
     console.log("yes", result);
