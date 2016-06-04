@@ -215,19 +215,19 @@
     </object>
     <object type="LMREQUEST" id="z117">
         <attribute name="uuid" type="string">D979203A-4FA8-4754-9C89-7FEC87646217</attribute>
-        <attribute name="url" type="string">http://localhost:3000/</attribute>
+        <attribute name="url" type="string">http://localhost:3000/test1/</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
-        <attribute name="method" type="string">POST</attribute>
+        <attribute name="method" type="string">GET</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">["{\\"name\\":\\"someone\\"}"]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">My API</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z105 z114"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z114 z105"></relationship>
     </object>
     <object type="LMREQUEST" id="z118">
         <attribute name="uuid" type="string">B193F02D-19C2-4A7F-B1B8-77D0EB40A7EA</attribute>
