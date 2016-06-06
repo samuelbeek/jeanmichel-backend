@@ -42,11 +42,10 @@ function recursiveRoutes(folderName) {
             recursiveRoutes(fullName);
         } else if (file.toLowerCase().indexOf('.js')) {
             require('./' + fullName)(app);
-            console.log("require('" + fullName + "')");
         }
     });
 }
-recursiveRoutes('routes'); // Initialize it
+recursiveRoutes('routes');
 
 app.get('/', function (req, res) {
   res.send('Hello world');

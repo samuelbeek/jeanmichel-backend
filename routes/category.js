@@ -1,3 +1,8 @@
+var Category = require('../models/category');
+var Show = require('../models/show');
+var _ = require('lodash');
+var middlewares = require("../utils/middlewares");
+
 module.exports = function(app){
 
   app.get('/category', function (req, res) {
@@ -24,5 +29,43 @@ module.exports = function(app){
       res.send(result.toJSON());
     });
   });
-  
+
+app.post('/category/:categoryId/show', middlewares.categoryById, function(req, res){
+
+    var category = req.category;
+    var showId = req.body.showId;
+
+    Show.findById(showId, function(err, show){
+      if (err) {
+        res.send(err);
+      } else {
+        category.shows.push(show);
+        category.save(function(err, result){
+            if (err) return console.error(err);
+            res.send(result.toJSON());
+
+            // maybe implement: https://gist.github.com/timhudson/5288685 here 
+        })
+      }
+    });
+
+  });
+
+  app.post('/category/:categoryId/sync', function(req, res){
+    var categoryId = req.params.categoryId;
+    Category.findById(categoryId, function(err, category){
+      if (err) {
+        res.send(err);
+      } else {
+        console.log(category.shows);
+        _(category.shows).forEach(function(show){
+          console.log(show.audioSearchId);
+          res.send(show);
+        })
+      }
+    });
+
+
+  });
+
 }
