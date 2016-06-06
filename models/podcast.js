@@ -6,6 +6,7 @@ var podcastSchema = Schema({
   _creator : { type: Schema.Types.ObjectId, ref: 'Show' },
   description: String,
   audioUrl: String,
+  audioSearchId: String,
   imageUrl: String,
   shareUrl: String,
   dateCreated: Date,
