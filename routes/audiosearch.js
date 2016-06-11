@@ -11,8 +11,6 @@ module.exports = function(app){
   // gets shows with id's in the params
   app.get('/audiosearch/shows', function (req, res) {
 
-    console.log("fetching podcasts");
-
     var showArray = req.query.shows.split(',')
     // create a promises array in which we will return all the shows
     var promises = []
