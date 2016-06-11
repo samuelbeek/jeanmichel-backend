@@ -8,7 +8,6 @@ module.exports = function(app){
 
   });
 
-
   // gets shows with id's in the params
   app.get('/audiosearch/shows', function (req, res) {
 

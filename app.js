@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 // models
 var Podcast = require('./models/podcast');
 var Show = require('./models/show');
-var Category = require('./models/category');
+var Station = require('./models/station');
 
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that

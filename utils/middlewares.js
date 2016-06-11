@@ -1,4 +1,4 @@
-var Category = require('../models/category');
+var Station = require('../models/station');
 
 module.exports = {
     createPodcast: function(req, res, next) {
@@ -9,13 +9,13 @@ module.exports = {
           next()
         });
       },
-    categoryById: function(req, res, next) {
-      var categoryId = req.params.categoryId;
-      Category.findById(categoryId, function(errpr, category){
+    stationById: function(req, res, next) {
+      var stationId = req.params.stationId;
+      Station.findById(stationId, function(errpr, station){
         if (errpr) {
           res.send(errpr);
         } else {
-          req.category = category;
+          req.station = station;
           next();
         }
     });

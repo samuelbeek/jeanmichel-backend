@@ -401,7 +401,7 @@
     </object>
     <object type="LMREQUEST" id="z133">
         <attribute name="uuid" type="string">AA1C5A83-22D5-44CC-BE52-7F9ECC61B960</attribute>
-        <attribute name="url" type="string">http://localhost:3000/category </attribute>
+        <attribute name="url" type="string">http://localhost:3000/station </attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -410,7 +410,7 @@
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Science 2\\",\\"description\\":\\"A collection of all the good science podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\",\\"iconUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"color\\":\\"#00FF00\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">3</attribute>
-        <attribute name="name" type="string">Post Category</attribute>
+        <attribute name="name" type="string">Post Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z134 z132"></relationship>
@@ -437,7 +437,7 @@
     </object>
     <object type="LMREQUEST" id="z136">
         <attribute name="uuid" type="string">AA42F335-86D8-48AD-8473-7DDABCA0A871</attribute>
-        <attribute name="url" type="string">http://localhost:3000/category</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -534,7 +534,7 @@
     </object>
     <object type="LMREQUEST" id="z144">
         <attribute name="uuid" type="string">3C4DEB82-DFA5-4630-8FFA-8B8DB681E7C6</attribute>
-        <attribute name="url" type="string">http://localhost:3000/category/5734a0227b816ff72b49d0f6/sync</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station/5734a0227b816ff72b49d0f6/sync</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -616,7 +616,7 @@
     </object>
     <object type="LMREQUEST" id="z151">
         <attribute name="uuid" type="string">E3E0C8C6-EE0F-46F2-993F-54B9CC074696</attribute>
-        <attribute name="url" type="string">http://localhost:3000/category/5734a0227b816ff72b49d0f6/show</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station/5734a0227b816ff72b49d0f6/show</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>

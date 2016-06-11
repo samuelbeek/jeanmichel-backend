@@ -1,7 +1,7 @@
 var middlewares = require("../utils/middlewares");
 var Podcast = require('../models/podcast');
 var Show = require('../models/show');
-var Category = require('../models/category');
+var Station = require('../models/station');
 
 module.exports = function(app){
 

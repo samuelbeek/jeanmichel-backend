@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema;
 
-var categorySchema = Schema({
+var stationSchema = Schema({
   title: String,
   description: String,
   imageUrl: String,
@@ -11,5 +11,5 @@ var categorySchema = Schema({
   shows: [{ type: Schema.Types.ObjectId, ref: 'Show' }]
 });
 
-var Category = mongoose.model('Category', categorySchema);
-module.exports = Category
+var Station = mongoose.model('Station', stationSchema);
+module.exports = Station
