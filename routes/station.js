@@ -3,7 +3,7 @@ var Show = require('../models/show');
 var _ = require('lodash');
 var middlewares = require("../utils/middlewares");
 
-// TODO: make this a helper 
+// TODO: make this a helper
 // Audiosearch intergration
 // current callback is: http://google.com - we might wanna change that
 var Audiosearch = require('audiosearch-client-node');
@@ -66,9 +66,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
         // get all shows
           promises.push(
             new Promise(function (resolve, reject) {
-              console.log("getting show with audioSearchId", show.audioSearchId);
               audiosearch.getShow(show.audioSearchId).then(function (results) {
-                console.log("we got results!", results);
                 resolve(results);
               });
             })
