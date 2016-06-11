@@ -21,13 +21,6 @@ var Podcast = require('./models/podcast');
 var Show = require('./models/show');
 var Station = require('./models/station');
 
-// Audiosearch intergration
-// current callback is: http://google.com - we might wanna change that
-var Audiosearch = require('audiosearch-client-node');
-var appId = "8baa461e60a3fb576151e54f327ff76e8d9169e10e4ae36f82e4783c4c02b767";
-var appSecret = "d9dd62f9f6aa29735077352dbac0f9a70f7cbeca72877ae27b04a21151e56c51";
-var audiosearch = new Audiosearch(appId, appSecret);
-
 // Initialize ALL routes including subfolders
 var fs = require('fs');
 var path = require('path');
