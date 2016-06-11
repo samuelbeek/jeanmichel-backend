@@ -11,7 +11,7 @@ module.exports = {
       },
     stationById: function(req, res, next) {
       var stationId = req.params.stationId;
-      Station.findById(stationId, function(error, station){
+      Station.findById(stationId).populate('shows').exec(function (error, station) {
         if (error) {
           res.send(error);
         } else if (station == null) {
