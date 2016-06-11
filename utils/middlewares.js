@@ -11,9 +11,11 @@ module.exports = {
       },
     stationById: function(req, res, next) {
       var stationId = req.params.stationId;
-      Station.findById(stationId, function(errpr, station){
-        if (errpr) {
-          res.send(errpr);
+      Station.findById(stationId, function(error, station){
+        if (error) {
+          res.send(error);
+        } else if (station == null) {
+          res.send("Error: no station can be found for that id");
         } else {
           req.station = station;
           next();

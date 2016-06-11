@@ -51,21 +51,13 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
 
   });
 
-  app.post('/station/:stationId/sync', function(req, res){
-    var stationId = req.params.stationId;
-    Station.findById(stationId, function(err, station){
-      if (err) {
-        res.send(err);
-      } else {
-        console.log(station.shows);
-        _(station.shows).forEach(function(show){
-          console.log(show.audioSearchId);
-          res.send(show);
-        })
-      }
-    });
-
-
+  app.post('/station/:stationId/sync', middlewares.stationById, function(req, res){
+      var station = req.station; 
+      console.log(station);
+      _(station.shows).forEach(function(show){
+        console.log(show.audioSearchId);
+        res.send(show);
+      })
   });
 
 }
