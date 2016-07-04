@@ -5,15 +5,15 @@ var Promise = require('promise');
 var _ = require('lodash');
 var mongoose = require('mongoose');
 
+// Mongo Setup
 mongoose.connect('mongodb://localhost/test');
-
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {
-  console.log("connected");
+  console.log("connected to database");
 });
 
-// parsing
+// Parser Setup
 app.use(bodyParser.json())
 
 // models
@@ -25,6 +25,7 @@ var Station = require('./models/station');
 var fs = require('fs');
 var path = require('path');
 
+// Automtaically initializes routes in the roustes folder
 function recursiveRoutes(folderName) {
     fs.readdirSync(folderName).forEach(function(file) {
 

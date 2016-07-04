@@ -1,3 +1,6 @@
+var middlewares = require("../utils/middlewares");
+var podcastSearch = require('../utils/podcastSearch.js');
+
 module.exports = function(app){
 
   app.post('/audiosearch/search', function (req, res) {
@@ -78,7 +81,12 @@ module.exports = function(app){
   app.get('/audiosearch/episodes/:episodeId', function(req, res) {
 
     var episodeId = req.params.episodeId;
-    audiosearch.getEpisode(episodeId).then(function(results){
+
+    if(!episodeId) {
+      res.send("no episode id");
+    }
+
+    podcastSearch().getEpisodeById(episodeId).then(function(results, error){
         res.send(results);
     });
 
