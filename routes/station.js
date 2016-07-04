@@ -9,10 +9,15 @@ module.exports = function(app){
 
   app.get('/station', function (req, res) {
     Station.find().then(function(results){
-      console.log(results)
       res.send(results);
     });
   });
+
+
+  app.get('/station/:stationId/', middlewares.stationByIdWithPodcasts ,function(req, res){
+    res.send(req.station);
+  });
+
 
   app.post('/station', function (req, res) {
 
