@@ -13,25 +13,11 @@ module.exports = function(app){
   // gets shows with id's in the params
   app.get('/audiosearch/shows', function (req, res) {
 
-    var showArray = req.query.shows.split(',')
-    // create a promises array in which we will return all the shows
-    var promises = []
+    var showIds = req.query.shows.split(',')
 
-    // loop through all the shows and return their information
-    _.each(showArray, function(showId){
-      promises.push(
-        new Promise(function (resolve, reject) {
-          audiosearch.getShow(showId).then(function (results) {
-            resolve(results);
-          });
-        })
-      );
-    });
-
-    // if all promises succeeded, send them to thte client
-    Promise.all(promises).then(function(resolvedPromises) {
-      res.send(resolvedPromises);
-    });
+    podcastSearch().getShowsById(showIds).then(function(results, error){
+      res.send(results);
+    })
 
   });
 
