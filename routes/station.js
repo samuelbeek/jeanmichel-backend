@@ -39,7 +39,11 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
       if (err) {
         res.send(err);
       } else {
-        station.shows.push(show);
+        // Only save this change when showId isn't alreay part of this station
+        var shows = station.shows;
+        shows.push(show)
+        station.shows = _.uniqBy(shows, '_id');
+        console.log(shows);
         station.save(function(err, result){
             if (err) return console.error(err);
             res.send(result.toJSON());
