@@ -1,4 +1,5 @@
 var middlewares = require("../utils/middlewares");
+var Podcast = require('../models/podcast');
 
 module.exports = function(app){
 

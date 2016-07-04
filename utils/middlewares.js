@@ -1,4 +1,5 @@
 var Station = require('../models/station');
+var Podcast = require('../models/podcast');
 
 module.exports = {
     createPodcast: function(req, res, next) {
