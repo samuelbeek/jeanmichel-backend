@@ -42,7 +42,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
         // Only save this change when showId isn't alreay part of this station
         var shows = station.shows;
         shows.push(show)
-        station.shows = _.uniqBy(shows, '_id');
+        station.shows = _.uniqBy(shows, 'audioSearchId');
         console.log(shows);
         station.save(function(err, result){
             if (err) return console.error(err);
