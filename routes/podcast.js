@@ -4,7 +4,7 @@ var Podcast = require('../models/podcast');
 module.exports = function(app){
 
   app.get('/podcast', function (req, res) {
-    Podcast.find().then(function(results){
+    Podcast.find().populate('_creator').then(function(results){
       res.send(results)
     });
   });
