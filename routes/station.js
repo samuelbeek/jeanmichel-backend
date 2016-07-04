@@ -5,17 +5,6 @@ var middlewares = require("../utils/middlewares");
 
 module.exports = function(app){
 
-  app.get('/test', function(req, res) {
-    var yo = new test()
-    console.log(req.params.episodes)
-
-    yo.getEpisodeById(req.params.episodeId).then( function(results, error) {
-      console.log(results);
-      console.log(error);
-      res.send(results);
-    });
-  });
-
   app.get('/station', function (req, res) {
     Station.find().then(function(results){
       console.log(results)
