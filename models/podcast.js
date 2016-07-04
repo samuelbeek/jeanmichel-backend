@@ -13,5 +13,6 @@ var podcastSchema = Schema({
   duration: Number
 });
 
+
 var Podcast = mongoose.model('Podcast', podcastSchema);
 module.exports = Podcast
