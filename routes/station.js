@@ -48,7 +48,6 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
         var shows = station.shows;
         shows.push(show)
         station.shows = _.uniqBy(shows, 'audioSearchId');
-        console.log(shows);
         station.save(function(err, result){
             if (err) return console.error(err);
             res.send(result.toJSON());
