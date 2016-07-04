@@ -5,10 +5,9 @@ module.exports = function(app){
 
   app.post('/audiosearch/search', function (req, res) {
     var query = req.body.query
-    audiosearch.searchEpisodes(query).then(function (results) {
+    podcastSearch().search(query).then(function(results, error){
       res.send(results);
-    });
-
+    })
   });
 
   // gets shows with id's in the params

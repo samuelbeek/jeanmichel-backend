@@ -13,13 +13,18 @@ module.exports = function(){
   // get episode by id
   return {
     getEpisodeById: function(episodeId) {
-      return new Promise(function (fullfill, reject){
-        console.log("didn't receive something")
+      return new Promise(function (resolve, reject){
         audiosearch.getEpisode(episodeId).then(function(results){
-            console.log("received something")
-            fullfill(results);
+            resolve(results);
         });
 
+      });
+    },
+    search: function(query) {
+      return new Promise(function (resolve, reject){
+          audiosearch.searchEpisodes(query).then(function (results) {
+            resolve(results);
+          });
       });
     }
   }
