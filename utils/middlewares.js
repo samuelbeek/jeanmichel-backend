@@ -22,5 +22,19 @@ module.exports = {
           next();
         }
     });
-  }
+  },
+  stationByIdWithPodcasts: function(req, res, next) {
+    var stationId = req.params.stationId;
+    Station.findById(stationId).deepPopulate('shows shows.podcasts').exec(function (error, station) {
+      if (error) {
+        res.send(error);
+      } else if (station == null) {
+        res.send("Error: no station can be found for that id");
+      } else {
+        req.station = station;
+        next();
+      }
+  });
+}
+
 }

@@ -56,7 +56,11 @@ module.exports = function(){
     getEpisodesByShowId: function(showId) {
       return new Promise(function (resolve, reject) {
         audiosearch.getShow(showId).then(function (show) {
-          var latestIds = show.episode_ids.slice(0,10)
+          // slice to 20 if size is larger than 20.
+          var latestIds = show.episode_ids;
+          if (show.episode_ids.lenght > 20) {
+            latestIds = show.slice(0,20);
+          }
           var episodes = []
           _.each(latestIds, function(episodeId){
             episodes.push(
