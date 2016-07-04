@@ -1,7 +1,9 @@
 var Station = require('../models/station');
 var Show = require('../models/show');
+var Podcast = require('../models/podcast');
 var _ = require('lodash');
 var middlewares = require("../utils/middlewares");
+var podcastSearch = require('../utils/podcastSearch.js');
 
 module.exports = function(app){
 
@@ -58,12 +60,44 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
       var promises = []
 
       _(station.shows).forEach(function(show){
+
         // get all shows
           promises.push(
             new Promise(function (resolve, reject) {
-              audiosearch.getShow(show.audioSearchId).then(function (results) {
-                resolve(results);
-              });
+              podcastSearch().getEpisodesByShowId(show.audioSearchId).then(function(results, error){
+                var episodePromises = []
+                _(results).forEach(function(unparsedPodcast) {
+                  episodePromises.push(
+
+                    new Promise(function(resolve, reject){
+
+                      // create new podcast
+                      var newPodcast = {
+                        title: unparsedPodcast.title,
+                        _creator: show._id,
+                        description: unparsedPodcast.description,
+                        audioUrl: unparsedPodcast.audio_files[0].url[0],
+                        audioSearchId: unparsedPodcast.id,
+                        imageUrl: show.imageUrl,
+                        shareUrl: unparsedPodcast.digital_location,
+                        dateCreated: unparsedPodcast.date_added,
+                        duration: unparsedPodcast.duration
+                      }
+
+                      // add podcast if it isn't around, if not: update
+                      Podcast.update({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
+                        if (err) return console.error(err);
+                        resolve(result)
+                      });
+
+                    })
+                  )
+                });
+
+                Promise.all(episodePromises).then(function(resolvedPromises){
+                  resolve(resolvedPromises);
+                })
+              })
             })
           );
       })
