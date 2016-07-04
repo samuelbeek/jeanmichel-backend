@@ -14,7 +14,6 @@ module.exports = function(app){
     });
   });
 
-
   app.post('/station', function (req, res) {
 
     var title = req.body.title;
@@ -27,7 +26,6 @@ module.exports = function(app){
     var station = new Station({title: title, description: description, imageUrl: imageUrl, iconUrl: iconUrl, color: color, author: author})
     station.save(function(err, result){
       if (err) return console.log(err);
-      console.log("yes", result);
       res.send(result.toJSON());
     });
   });
@@ -55,7 +53,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
 
   });
 
-  app.post('/station/:stationId/sync', middlewares.stationById, function(req, res){
+  app.post('/station/:stationId/sync', middlewares.stationByIdWithPodcasts, function(req, res){
       var station = req.station;
       var promises = []
 
@@ -66,6 +64,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
             new Promise(function (resolve, reject) {
               podcastSearch().getEpisodesByShowId(show.audioSearchId).then(function(results, error){
                 var episodePromises = []
+
                 _(results).forEach(function(unparsedPodcast) {
                   episodePromises.push(
 
@@ -85,7 +84,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
                       }
 
                       // add podcast if it isn't around, if not: update
-                      Podcast.update({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
+                      Podcast.findOneAndUpdate({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
                         if (err) return console.error(err);
                         resolve(result)
                       });
@@ -95,7 +94,13 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
                 });
 
                 Promise.all(episodePromises).then(function(resolvedPromises){
-                  resolve(resolvedPromises);
+                  var podcasts = show.podcasts.concat(resolvedPromises);
+                  podcasts = _.uniqBy(podcasts, 'audioSearchId');
+                  show.podcasts = podcasts;
+                  show.save(function(err, result){
+                      if (err) return console.error(err);
+                      resolve(result.toJSON());
+                  })
                 })
               })
             })
