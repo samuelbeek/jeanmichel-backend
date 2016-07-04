@@ -53,8 +53,31 @@ module.exports = function(){
         });
 
     },
+    getEpisodesByShowId: function(showId) {
+      return new Promise(function (resolve, reject) {
+        audiosearch.getShow(showId).then(function (show) {
+          var latestIds = show.episode_ids.slice(0,10)
+          var episodes = []
+          _.each(latestIds, function(episodeId){
+            episodes.push(
+              new Promise(function(resolve, reject) {
+                audiosearch.getEpisode(episodeId).then(function(episode){
+                  resolve(episode)
+                });
+              })
+            );
+
+          })
+
+          Promise.all(episodes).then(function(resolvedPromises) {
+            resolve(resolvedPromises);
+          });
+        });
+      })
+
+    },
     // get episodes from array of ids
-    getEpisodesByShowId: function(showIds) {
+    getEpisodesByShowIds: function(showIds) {
       return new Promise(function(resolve, reject) {
           var promises = []
           // loop through all the shows and return their information

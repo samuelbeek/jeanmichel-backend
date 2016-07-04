@@ -25,12 +25,25 @@ module.exports = function(app){
   app.get('/audiosearch/shows/episodes', function (req, res) {
 
     var showIds = req.query.shows.split(',')
-    
-    podcastSearch().getEpisodesByShowId(showIds).then(function(results, error){
+
+    podcastSearch().getEpisodesByShowIds(showIds).then(function(results, error){
       res.send(results);
     })
 
   });
+
+  // gets shows's episodes with id's in the params
+  app.get('/audiosearch/shows/:showId/episodes', function (req, res) {
+
+    var showId = req.params.showId;
+
+    podcastSearch().getEpisodesByShowId(showId).then(function(results, error){
+      res.send(results);
+    })
+
+  });
+
+
 
   // get episode by id
   app.get('/audiosearch/episodes/:episodeId', function(req, res) {
