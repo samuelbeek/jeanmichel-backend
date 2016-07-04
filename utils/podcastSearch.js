@@ -58,8 +58,8 @@ module.exports = function(){
         audiosearch.getShow(showId).then(function (show) {
           // slice to 20 if size is larger than 20.
           var latestIds = show.episode_ids;
-          if (show.episode_ids.lenght > 20) {
-            latestIds = show.slice(0,20);
+          if (latestIds.length > 20) {
+            latestIds = latestIds.slice(0,20);
           }
           var episodes = []
           _.each(latestIds, function(episodeId){
