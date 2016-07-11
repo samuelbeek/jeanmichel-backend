@@ -25,7 +25,7 @@ module.exports = {
   },
   stationByIdWithPodcasts: function(req, res, next) {
     var stationId = req.params.stationId;
-    Station.findById(stationId).deepPopulate('shows shows.podcasts').exec(function (error, station) {
+    Station.findById(stationId).deepPopulate('shows shows.podcasts shows.podcasts._creator').exec(function (error, station) {
       if (error) {
         res.send(error);
       } else if (station == null) {

@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>8892A0E3-981E-4B44-98A9-C89217B2C487</UUID>
-        <nextObjectID>163</nextObjectID>
+        <nextObjectID>166</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -179,7 +179,7 @@
     </object>
     <object type="LMREQUEST" id="z116">
         <attribute name="uuid" type="string">C330F61D-0635-48E5-8501-6F3E8F0552E2</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/shows?shows=27%2C11</attribute>
+        <attribute name="url" type="string">http://localhost:3000/audiosearch/shows?shows=11</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -218,7 +218,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"query\\":\\"party\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"query\\":\\"99% invisible\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Search Episodes</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
@@ -336,7 +336,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"This American Life\\",\\"description\\":\\"This American Life is a weekly public radio show, heard by 2.2 million people on more than 500 stations. Another 1.5 million people download the weekly podcast. It is hosted by Ira Glass, produced in collaboration with Chicago Public Media, delivered to stations by PRX The Public Radio Exchange, and has won all of the major broadcasting awards.\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"url\\":\\"http:\\\\\\/\\\\\\/www.thisamericanlife.org\\",\\"audioSearchId\\":\\"27\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"99% Invisble\\",\\"description\\":\\"Design is everywhere in our lives, perhaps most importantly in the places where we\\\\u2019ve just stopped noticing. 99% Invisible (99 Percent Invisible) is a weekly exploration of the process and power of design and architecture. From award-winning producer Roman Mars and KALW in San Francisco. Learn more: http:\\\\\\/\\\\\\/99percentinvisible.org . A proud proud member of Radiotopia, from PRX. Learn more at radiotopia.fm.\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/s3.amazonaws.com\\\\\\/asproduction\\\\\\/99-invisible.HECbes.audiosear.ch\\\\\\/jpg_600x600bb.jpg?X-Amz-Expires=604800\u2600X-Amz-Date=20160704T181347Z\u2600X-Amz-Algorithm=AWS4-HMAC-SHA256\u2600X-Amz-Credential=AKIAJ6B3Q7DFQGUS2TXQ\\\\\\/20160704\\\\\\/us-east-1\\\\\\/s3\\\\\\/aws4_request\u2600X-Amz-SignedHeaders=host\u2600X-Amz-Signature=94a7e4647fea3ae264ca72121427922a1863edf8895fd39b103c78263ce3c5a5\\",\\"url\\":\\"http:\\\\\\/\\\\\\/99pi.org\\",\\"audioSearchId\\":\\"11\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Post Show</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z157"></relationship>
@@ -372,7 +372,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Super test station\\",\\"description\\":\\"A collection of all the good science podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\",\\"iconUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"color\\":\\"#00FF00\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Design\\",\\"description\\":\\"A collection of all the good design podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\",\\"iconUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"color\\":\\"#00FF00\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Post Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
@@ -462,7 +462,7 @@
     </object>
     <object type="LMREQUEST" id="z144">
         <attribute name="uuid" type="string">3C4DEB82-DFA5-4630-8FFA-8B8DB681E7C6</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/575c116a860093117f321f6f/sync</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station/577aa78fbafa417303c7dc83/sync</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -470,7 +470,7 @@
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
         <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">3</attribute>
+        <attribute name="order" type="int64">4</attribute>
         <attribute name="name" type="string">Post Stations Sync</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -544,15 +544,15 @@
     </object>
     <object type="LMREQUEST" id="z151">
         <attribute name="uuid" type="string">E3E0C8C6-EE0F-46F2-993F-54B9CC074696</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/575c116a860093117f321f6f/show</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station/577aa78fbafa417303c7dc83/show</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"showId\\":\\"575c1152860093117f321f6e\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
-        <attribute name="order" type="int64">4</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"showId\\":\\"577aa76ebafa417303c7dc82\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">5</attribute>
         <attribute name="name" type="string">Post Show to Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
@@ -573,7 +573,7 @@
         <attribute name="order" type="int64">1</attribute>
         <attribute name="name" type="string">Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z144 z136 z151 z133 z162"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z144 z136 z151 z133 z162 z164"></relationship>
         <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
         <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
@@ -659,5 +659,41 @@
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z162"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z164">
+        <attribute name="uuid" type="string">A076C3CF-F644-48FF-ABDF-28E911E682D5</attribute>
+        <attribute name="url" type="string">http://localhost:3000/station/575c116a860093117f321f6f/podcasts</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">Get Stations Podcasts</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z165 z166"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z165">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z164"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z166">
+        <attribute name="value" type="string">application/json</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Content-Type</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z164"></relationship>
     </object>
 </database>

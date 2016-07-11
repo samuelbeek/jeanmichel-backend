@@ -18,6 +18,13 @@ module.exports = function(app){
     res.send(req.station);
   });
 
+  app.get('/station/:stationId/podcasts', middlewares.stationByIdWithPodcasts ,function(req, res){
+    var podcasts = [];
+    _.each(req.station.shows, function(show) {
+      podcasts = podcasts.concat(show.podcasts);
+    });
+    res.send(podcasts);
+  });
 
   app.post('/station', function (req, res) {
 
