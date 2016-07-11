@@ -1,9 +1,12 @@
+var node_port = (process.env.NODE_ENV === 'development' ? 7777 : process.env.PORT);
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
 var Promise = require('promise');
 var _ = require('lodash');
 var mongoose = require('mongoose');
+var config = require('./utils/settings').config();
 
 // Mongo Setup
 mongoose.connect('mongodb://localhost/test');
@@ -15,6 +18,9 @@ db.once('open', function() {
 
 // Parser Setup
 app.use(bodyParser.json())
+
+global.app = app
+global.config = config
 
 // models
 var Podcast = require('./models/podcast');
@@ -46,6 +52,6 @@ app.get('/', function (req, res) {
   res.send('Hello world');
 });
 
-app.listen(3000, function () {
-  console.log('🤖',' - App listening on port 3000!');
+app.listen(node_port, function() {
+    console.log('Express server listening on port ' + node_port);
 });

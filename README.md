@@ -1,17 +1,17 @@
 # Jean Michel Backend
 
-Wrapper around the [audiosear.ch](https://www.audiosear.ch) API to have curated podcast content. Work in progress. 
+Wrapper around the [audiosear.ch](https://www.audiosear.ch) API to have curated podcast content. Work in progress.
 
 ## Installation & Usage
-run `npm install` to install dependencies
-
-run `nodemon app.js` to start the server 
+* run `npm install` to install dependencies
+* run `export NODE_ENV=development` to set the environment
+* run `nodemon server.js` to start the server
 
 go to `jeanmichel-data` or another mongo directory and run `sudo mongod`
 
 
-## Endpoints 
-### Get Episode By Id 
+## Endpoints
+### Get Episode By Id
 
 __URL__ : /episodes/:episodeId
 
@@ -64,13 +64,13 @@ __Example Response__
 
 ```
 --
-### Get Shows 
+### Get Shows
 
 __URL:__ /shows/
 
 __Optional Query Parameters__
 
-* `shows` - Comma seperated id's of the shows 
+* `shows` - Comma seperated id's of the shows
 
 __Example Response__
 
@@ -165,7 +165,7 @@ __Example Response__
 ]
 ```
 
-### Get Episodes from Shows 
+### Get Episodes from Shows
 
 Returns the latest 10 episodes of the show.
 
@@ -173,11 +173,11 @@ __URL:__ /shows/episodes
 
 __Optional Query Parameters__
 
-* `shows` - Comma seperated id's of the shows 
+* `shows` - Comma seperated id's of the shows
 
 __Example Response__
 
-```json 
+```json
 [
   {
     "id": 77804,
