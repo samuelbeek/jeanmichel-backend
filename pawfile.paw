@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>8892A0E3-981E-4B44-98A9-C89217B2C487</UUID>
-        <nextObjectID>166</nextObjectID>
+        <nextObjectID>172</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -70,15 +70,15 @@
     <object type="LMENVIRONMENTVARIABLE" id="z103">
         <attribute name="uuid" type="string">7EF3A17B-7D70-4DEF-9218-F2E7E85441BB</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string"></attribute>
+        <attribute name="name" type="string">baseUrl</attribute>
         <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z104"></relationship>
-        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z121"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z169 z121"></relationship>
     </object>
     <object type="LMENVIRONMENTDOMAIN" id="z104">
         <attribute name="uuid" type="string">8E65C3FF-B991-49AC-9F47-B74598B7F0D1</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string">Default Domain</attribute>
-        <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z102"></relationship>
+        <attribute name="name" type="string">Environment</attribute>
+        <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z170 z102"></relationship>
         <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z103"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z106">
@@ -163,7 +163,7 @@
     </object>
     <object type="LMREQUEST" id="z115">
         <attribute name="uuid" type="string">47709F58-DC8B-4584-870E-CF759A5E0CB9</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/episodes/77804</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/episodes\\/77804"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -179,7 +179,7 @@
     </object>
     <object type="LMREQUEST" id="z116">
         <attribute name="uuid" type="string">C330F61D-0635-48E5-8501-6F3E8F0552E2</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/shows?shows=11</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/shows?shows=11"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -195,7 +195,7 @@
     </object>
     <object type="LMREQUEST" id="z118">
         <attribute name="uuid" type="string">B193F02D-19C2-4A7F-B1B8-77D0EB40A7EA</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/shows/episodes?shows=27%2C%2011</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/shows\\/episodes?shows=27%2C%2011"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -207,11 +207,11 @@
         <attribute name="name" type="string">Get Episodes from Shows</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z106 z111"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z111 z106"></relationship>
     </object>
     <object type="LMREQUEST" id="z119">
         <attribute name="uuid" type="string">CD762769-F6F8-4BB6-B05B-8791F8AF7E4A</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/search</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/search"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -223,7 +223,7 @@
         <attribute name="name" type="string">Search Episodes</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z113 z107"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z107 z113"></relationship>
     </object>
     <object type="LMCOOKIEJAR" id="z120">
         <attribute name="uuid" type="string">A08ABEBA-32EE-4EEE-B1D6-0A0C03647CAE</attribute>
@@ -231,7 +231,7 @@
         <attribute name="name" type="string">Default Jar</attribute>
     </object>
     <object type="LMENVIRONMENTVARIABLEVALUE" id="z121">
-        <attribute name="value" type="string"></attribute>
+        <attribute name="value" type="string">http://localhost:3000</attribute>
         <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z102"></relationship>
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z103"></relationship>
     </object>
@@ -277,7 +277,7 @@
     </object>
     <object type="LMREQUEST" id="z126">
         <attribute name="uuid" type="string">137A34D1-61D5-4B72-9137-FF5C3560FC2B</attribute>
-        <attribute name="url" type="string">http://localhost:3000/podcast</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/podcast"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -293,7 +293,7 @@
     </object>
     <object type="LMREQUEST" id="z127">
         <attribute name="uuid" type="string">4089FD1D-113A-4B14-85DB-BE1F5866C386</attribute>
-        <attribute name="url" type="string">http://localhost:3000/podcast</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/podcast"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -329,7 +329,7 @@
     </object>
     <object type="LMREQUEST" id="z130">
         <attribute name="uuid" type="string">DBB57BAE-46F9-4D84-9F65-66BF39ABB031</attribute>
-        <attribute name="url" type="string">http://localhost:3000/show</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/show"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -365,7 +365,7 @@
     </object>
     <object type="LMREQUEST" id="z133">
         <attribute name="uuid" type="string">AA1C5A83-22D5-44CC-BE52-7F9ECC61B960</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station </attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station "]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -377,7 +377,7 @@
         <attribute name="name" type="string">Post Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z132 z134"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z134 z132"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z134">
         <attribute name="value" type="string">application/json</attribute>
@@ -401,7 +401,7 @@
     </object>
     <object type="LMREQUEST" id="z136">
         <attribute name="uuid" type="string">AA42F335-86D8-48AD-8473-7DDABCA0A871</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -447,7 +447,7 @@
     </object>
     <object type="LMREQUEST" id="z140">
         <attribute name="uuid" type="string">7B2D87F1-9DF6-4477-8EEE-1DBA8D2DED8B</attribute>
-        <attribute name="url" type="string">http://localhost:3000/show/57348f658962480f2a1d1f01/podcast</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/show\\/57348f658962480f2a1d1f01\\/podcast"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -462,7 +462,7 @@
     </object>
     <object type="LMREQUEST" id="z144">
         <attribute name="uuid" type="string">3C4DEB82-DFA5-4630-8FFA-8B8DB681E7C6</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/577aa78fbafa417303c7dc83/sync</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/577aa78fbafa417303c7dc83\\/sync"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -474,7 +474,7 @@
         <attribute name="name" type="string">Post Stations Sync</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z145 z146"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z146 z145"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z145">
         <attribute name="value" type="string"></attribute>
@@ -508,7 +508,7 @@
     </object>
     <object type="LMREQUEST" id="z148">
         <attribute name="uuid" type="string">4CF9D03C-C789-40F3-A604-C72EBE101A5F</attribute>
-        <attribute name="url" type="string">http://localhost:3000/show</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/show"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -544,7 +544,7 @@
     </object>
     <object type="LMREQUEST" id="z151">
         <attribute name="uuid" type="string">E3E0C8C6-EE0F-46F2-993F-54B9CC074696</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/577aa78fbafa417303c7dc83/show</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/577aa78fbafa417303c7dc83\\/show"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -600,7 +600,7 @@
     </object>
     <object type="LMREQUEST" id="z159">
         <attribute name="uuid" type="string">39DE53E5-2B61-4927-879C-E0B95BF53B81</attribute>
-        <attribute name="url" type="string">http://localhost:3000/audiosearch/shows/11/episodes</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/shows\\/11\\/episodes"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -612,7 +612,7 @@
         <attribute name="name" type="string">Get Show Episodes</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z160 z158"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z158 z160"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z160">
         <attribute name="value" type="string"></attribute>
@@ -636,7 +636,7 @@
     </object>
     <object type="LMREQUEST" id="z162">
         <attribute name="uuid" type="string">3AE4A34B-7E24-4CC7-AF26-46E982FD5E53</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/575c116a860093117f321f6f</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/575c116a860093117f321f6f"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -648,7 +648,7 @@
         <attribute name="name" type="string">Get Stations Content</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z161 z163"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z163 z161"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z163">
         <attribute name="value" type="string"></attribute>
@@ -662,7 +662,7 @@
     </object>
     <object type="LMREQUEST" id="z164">
         <attribute name="uuid" type="string">A076C3CF-F644-48FF-ABDF-28E911E682D5</attribute>
-        <attribute name="url" type="string">http://localhost:3000/station/575c116a860093117f321f6f/podcasts</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/575c116a860093117f321f6f\\/podcasts"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -695,5 +695,17 @@
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z164"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z169">
+        <attribute name="value" type="string">http://jeanmichel-backend.herokuapp.com</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z170"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z103"></relationship>
+    </object>
+    <object type="LMENVIRONMENT" id="z170">
+        <attribute name="uuid" type="string">6424DF86-11EB-4F7D-9CB9-A22BC3B8CFFD</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Heroku</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z104"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z169"></relationship>
     </object>
 </database>

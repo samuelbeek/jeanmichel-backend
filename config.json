@@ -2,5 +2,9 @@
 	"x" : {
 		"development" : "test_aiX4MVr4JDLDhspY3PSE8qhnR",
 		"production" :  "live_UNuxmh0NTedn0f0JsmzWIL1R4"
+	},
+	"mongoUrl": {
+		"development" : "mongodb://localhost/test",
+		"production" : "mongodb://heroku_36kg04cm:tabgof1lk65lefmt8v0j88tid4@ds029828.mlab.com:29828/heroku_36kg04cm"
 	}
 }

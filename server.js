@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var config = require('./utils/settings').config();
 
 // Mongo Setup
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(config.get("mongoUrl"));
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {
