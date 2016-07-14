@@ -4,6 +4,7 @@
   "description": "providing quality sounds to the client",
   "main": "index.js",
   "dependencies": {
+    "audiosearch-client-node": "git+https://github.com/popuparchive/audiosearch-client-node.git",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "file-system": "^2.2.1",
@@ -17,7 +18,7 @@
   },
   "devDependencies": {},
   "engines": {
-  	"node":"4.1.1"
+    "node": "4.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
