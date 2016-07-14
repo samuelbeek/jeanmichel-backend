@@ -179,7 +179,7 @@
     </object>
     <object type="LMREQUEST" id="z116">
         <attribute name="uuid" type="string">C330F61D-0635-48E5-8501-6F3E8F0552E2</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/shows?shows=11"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/audiosearch\\/shows?shows=317"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -218,7 +218,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"query\\":\\"99% invisible\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"query\\":\\"Buzz Feed Internet Explorer\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Search Episodes</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z135"></relationship>
@@ -231,7 +231,7 @@
         <attribute name="name" type="string">Default Jar</attribute>
     </object>
     <object type="LMENVIRONMENTVARIABLEVALUE" id="z121">
-        <attribute name="value" type="string">http://localhost:3000</attribute>
+        <attribute name="value" type="string">http://localhost:7777</attribute>
         <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z102"></relationship>
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z103"></relationship>
     </object>
@@ -336,7 +336,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"99% Invisble\\",\\"description\\":\\"Design is everywhere in our lives, perhaps most importantly in the places where we\\\\u2019ve just stopped noticing. 99% Invisible (99 Percent Invisible) is a weekly exploration of the process and power of design and architecture. From award-winning producer Roman Mars and KALW in San Francisco. Learn more: http:\\\\\\/\\\\\\/99percentinvisible.org . A proud proud member of Radiotopia, from PRX. Learn more at radiotopia.fm.\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/s3.amazonaws.com\\\\\\/asproduction\\\\\\/99-invisible.HECbes.audiosear.ch\\\\\\/jpg_600x600bb.jpg?X-Amz-Expires=604800\u2600X-Amz-Date=20160704T181347Z\u2600X-Amz-Algorithm=AWS4-HMAC-SHA256\u2600X-Amz-Credential=AKIAJ6B3Q7DFQGUS2TXQ\\\\\\/20160704\\\\\\/us-east-1\\\\\\/s3\\\\\\/aws4_request\u2600X-Amz-SignedHeaders=host\u2600X-Amz-Signature=94a7e4647fea3ae264ca72121427922a1863edf8895fd39b103c78263ce3c5a5\\",\\"url\\":\\"http:\\\\\\/\\\\\\/99pi.org\\",\\"audioSearchId\\":\\"11\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Internet Explorer\\",\\"description\\":\\"BuzzFeed editors Ryan Broderick and Katie Notopoulos explore the weirdest corners of the internet, so you don't have to.\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/www.audiosear.ch\\\\\\/media\\\\\\/ba98d2bc58dc3326f3add76466eb3de7\\\\\\/0\\\\\\/public\\\\\\/image_file\\\\\\/58227\\\\\\/600x600bb.jpg\\",\\"url\\":\\"http:\\\\\\/\\\\\\/www.buzzfeed.com\\\\\\/iexplorer\\",\\"audioSearchId\\":\\"317\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Post Show</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z157"></relationship>
@@ -372,7 +372,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Design\\",\\"description\\":\\"A collection of all the good design podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\",\\"iconUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"color\\":\\"#00FF00\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"title\\":\\"Internet\\",\\"description\\":\\"A collection of all the internet podcsats\\",\\"imageUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"author\\":\\"Samuel Beek (@samuelbeek)\\",\\"iconUrl\\":\\"https:\\\\\\/\\\\\\/i1.sndcdn.com\\\\\\/avatars-000031826170-mhm0e7-large.jpg\\",\\"color\\":\\"#00FF00\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
         <attribute name="name" type="string">Post Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
@@ -462,7 +462,7 @@
     </object>
     <object type="LMREQUEST" id="z144">
         <attribute name="uuid" type="string">3C4DEB82-DFA5-4630-8FFA-8B8DB681E7C6</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/577aa78fbafa417303c7dc83\\/sync"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/5787b1aff161421100449952\\/sync"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -544,14 +544,14 @@
     </object>
     <object type="LMREQUEST" id="z151">
         <attribute name="uuid" type="string">E3E0C8C6-EE0F-46F2-993F-54B9CC074696</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/577aa78fbafa417303c7dc83\\/show"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/5787bc60b536660f9dbe2bd0\\/show"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"showId\\":\\"577aa76ebafa417303c7dc82\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"showId\\":\\"5787bc6db536660f9dbe2bd1\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">5</attribute>
         <attribute name="name" type="string">Post Show to Station</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z156"></relationship>
