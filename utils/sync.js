@@ -36,9 +36,6 @@ module.exports = function(){
 
                           var podcastUrl = unparsedPodcast.audio_files[0].url[0];
 
-                          // Only create podcast objects for urls that are actually legit.
-                          urlExists(podcastUrl, function(err, exists) {
-                            if (exists == true) {
                               // create new podcast
                               var newPodcast = {
                                 title: unparsedPodcast.title,
@@ -60,15 +57,6 @@ module.exports = function(){
                                 }
                                 resolve(result);
                               });
-
-                            } else {
-                              reject("url wasn't reachable - "+podcastUrl);
-                            }
-                          });
-
-
-
-
                         })
                       )
                     });
