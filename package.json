@@ -8,6 +8,7 @@
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "file-system": "^2.2.1",
+    "identify-filetype": "^1.0.0",
     "lodash": "^4.11.1",
     "mongoose": "^4.4.14",
     "mongoose-deep-populate": "^3.0.0",
@@ -16,7 +17,8 @@
     "path": "^0.12.7",
     "promise": "^7.1.1",
     "promise-settle": "^0.3.0",
-    "url-exists": "^1.0.3"
+    "url-exists": "^1.0.3",
+    "url-inspector": "^1.9.3"
   },
   "devDependencies": {},
   "engines": {
