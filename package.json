@@ -14,7 +14,8 @@
     "mongoose-types": "^1.0.3",
     "openifyit-mongoose-types": "^2.0.9",
     "path": "^0.12.7",
-    "promise": "^7.1.1"
+    "promise": "^7.1.1",
+    "url-exists": "^1.0.3"
   },
   "devDependencies": {},
   "engines": {

@@ -4,6 +4,7 @@ var Podcast = require('../models/podcast');
 var _ = require('lodash');
 var middlewares = require("../utils/middlewares");
 var podcastSearch = require('../utils/podcastSearch.js');
+var urlExists = require('url-exists');
 
 module.exports = function(app){
 
@@ -81,30 +82,49 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
 
                     new Promise(function(resolve, reject){
 
-                      // create new podcast
-                      var newPodcast = {
-                        title: unparsedPodcast.title,
-                        _creator: show._id,
-                        description: unparsedPodcast.description,
-                        audioUrl: unparsedPodcast.audio_files[0].url[0],
-                        audioSearchId: unparsedPodcast.id,
-                        imageUrl: show.imageUrl,
-                        shareUrl: unparsedPodcast.digital_location,
-                        dateCreated: unparsedPodcast.date_added,
-                        duration: unparsedPodcast.duration
-                      }
+                      var podcastUrl = unparsedPodcast.audio_files[0].url[0];
 
-                      // add podcast if it isn't around, if not: update
-                      Podcast.findOneAndUpdate({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
-                        if (err) return console.error(err);
-                        resolve(result)
+                      // Only create podcast objects for urls that are actually legit.
+                      urlExists(podcastUrl, function(err, exists) {
+                        if (exists == true) {
+                          // create new podcast
+                          var newPodcast = {
+                            title: unparsedPodcast.title,
+                            _creator: show._id,
+                            description: unparsedPodcast.description,
+                            audioUrl: podcastUrl,
+                            audioSearchId: unparsedPodcast.id,
+                            imageUrl: show.imageUrl,
+                            shareUrl: unparsedPodcast.digital_location,
+                            dateCreated: unparsedPodcast.date_added,
+                            duration: unparsedPodcast.duration
+                          }
+
+                          // add podcast if it isn't around, if not: update
+                          Podcast.findOneAndUpdate({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
+                            if (err) {
+                              reject(err);
+                              return console.error(err);
+                            }
+                            resolve(result);
+                          });
+
+                        } else {
+                          console.log("ERROR: url doesn't exist:", podcastUrl);
+                          resolve();
+                        }
                       });
+
+
+
 
                     })
                   )
                 });
 
-                Promise.all(episodePromises).then(function(resolvedPromises){
+                Promise.all(episodePromises).then(function(resolvedPromises, rejectedPromises){
+                  console.log("some where rejected", rejectedPromises);
+                  console.log("some where not rejected", resolvedPromises);
                   var podcasts = show.podcasts.concat(resolvedPromises);
                   podcasts = _.uniqBy(podcasts, 'audioSearchId');
                   show.podcasts = podcasts;

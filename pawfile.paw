@@ -462,7 +462,7 @@
     </object>
     <object type="LMREQUEST" id="z144">
         <attribute name="uuid" type="string">3C4DEB82-DFA5-4630-8FFA-8B8DB681E7C6</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/5787b1aff161421100449952\\/sync"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/5787bc60b536660f9dbe2bd0\\/sync"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -636,7 +636,7 @@
     </object>
     <object type="LMREQUEST" id="z162">
         <attribute name="uuid" type="string">3AE4A34B-7E24-4CC7-AF26-46E982FD5E53</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/575c116a860093117f321f6f"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"7EF3A17B-7D70-4DEF-9218-F2E7E85441BB"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/station\\/5787b262f161421100449953"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>

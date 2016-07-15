@@ -53,5 +53,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(node_port, function() {
-    console.log('Express server listening on port ' + node_port);
+    console.log('Express server environment '+process.env.NODE_ENV+' - listening on port ' + node_port);
 });
