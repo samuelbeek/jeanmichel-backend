@@ -5,6 +5,8 @@ var _ = require('lodash');
 var middlewares = require("../utils/middlewares");
 var podcastSearch = require('../utils/podcastSearch.js');
 var urlExists = require('url-exists');
+var settle = require('promise-settle');
+var rp = require('request-promise');
 
 module.exports = function(app){
 
@@ -65,6 +67,37 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
 
   });
 
+  app.post('/station/sync', function(req, res){
+
+    var promises = []
+
+
+    Station.find(function (err, stations) {
+      if (err) {
+        console.error(err);
+        res.send({"error":err})
+      }
+
+      _.each(stations, function(station){
+        promises.push(
+          new Promise(function(resolve, reject){
+
+          })
+        )
+      })
+
+
+    })
+
+
+    // if all promises succeeded, send them to thte client
+    Promise.all(promises).then(function(resolvedPromises) {
+      res.send(resolvedPromises);
+    });
+
+
+  });
+
   app.post('/station/:stationId/sync', middlewares.stationByIdWithPodcasts, function(req, res){
       var station = req.station;
       var promises = []
@@ -110,8 +143,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
                           });
 
                         } else {
-                          console.log("ERROR: url doesn't exist:", podcastUrl);
-                          resolve();
+                          reject("url wasn't reachable");
                         }
                       });
 
@@ -122,9 +154,21 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
                   )
                 });
 
-                Promise.all(episodePromises).then(function(resolvedPromises, rejectedPromises){
-                  console.log("some where rejected", rejectedPromises);
-                  console.log("some where not rejected", resolvedPromises);
+                settle(episodePromises).then(function(results){
+                  var resolvedPromises = []
+
+                  _.each(results, function(result) {
+
+                    if (result.isFulfilled()) {
+                      resolvedPromises.push(result.value());
+                    } else {
+                      console.log('Promise is rejected', result.reason());
+                    }
+
+                  })
+
+                  console.log("these are fulfilled", resolvedPromises);
+
                   var podcasts = show.podcasts.concat(resolvedPromises);
                   podcasts = _.uniqBy(podcasts, 'audioSearchId');
                   show.podcasts = podcasts;
