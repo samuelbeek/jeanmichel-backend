@@ -15,7 +15,6 @@
     "openifyit-mongoose-types": "^2.0.9",
     "path": "^0.12.7",
     "promise": "^7.1.1",
-    "q": "^1.4.1",
     "url-exists": "^1.0.3"
   },
   "devDependencies": {},
