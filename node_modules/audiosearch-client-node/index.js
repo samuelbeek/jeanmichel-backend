@@ -13,7 +13,7 @@ var Audiosearch = function (oauthKey, oauthSecret, oauthHost) {
     key: oauthKey,
     secret: oauthSecret,
     host: oauthHost || 'https://www.audiosear.ch',
-  }
+  };
 
   self._ee = new EventEmitter();
 
@@ -21,7 +21,7 @@ var Audiosearch = function (oauthKey, oauthSecret, oauthHost) {
     self._token = token;
     self._ee.emit('authComplete');
   });
-}
+};
 
 Audiosearch.prototype._authorize = function () {
   var self = this;
@@ -73,6 +73,10 @@ Audiosearch.prototype.get = function (url, params) {
       });
     }
   });
+};
+
+Audiosearch.prototype.searchShows = function (queryString, params) {
+  return this.get('/search/shows/'+encodeURI(queryString), params);
 };
 
 Audiosearch.prototype.searchEpisodes = function (queryString, params) {
