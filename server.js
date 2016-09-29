@@ -1,4 +1,5 @@
-var node_port = 7777;
+var node_port = (process.env.NODE_ENV === 'development' ? 7777 : process.env.PORT);
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
@@ -52,5 +53,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(node_port, function() {
-    console.log('Express server environment '+process.env.NODE_ENV+' - listening on port ' + node_port);
+    console.log('Express server listening on port ' + node_port);
 });
