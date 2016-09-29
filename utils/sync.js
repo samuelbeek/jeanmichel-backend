@@ -35,28 +35,31 @@ module.exports = function(){
                         new Promise(function(resolve, reject){
 
                           var podcastUrl = unparsedPodcast.audio_files[0].url[0];
+                          if (podcastUrl) {
+                            // create new podcast
+                            var newPodcast = {
+                              title: unparsedPodcast.title,
+                              _creator: show._id,
+                              description: unparsedPodcast.description,
+                              audioUrl: podcastUrl,
+                              audioSearchId: unparsedPodcast.id,
+                              imageUrl: show.imageUrl,
+                              shareUrl: unparsedPodcast.digital_location,
+                              dateCreated: unparsedPodcast.date_added,
+                              duration: unparsedPodcast.duration
+                            }
 
-                              // create new podcast
-                              var newPodcast = {
-                                title: unparsedPodcast.title,
-                                _creator: show._id,
-                                description: unparsedPodcast.description,
-                                audioUrl: podcastUrl,
-                                audioSearchId: unparsedPodcast.id,
-                                imageUrl: show.imageUrl,
-                                shareUrl: unparsedPodcast.digital_location,
-                                dateCreated: unparsedPodcast.date_added,
-                                duration: unparsedPodcast.duration
+                            // add podcast if it isn't around, if not: update
+                            Podcast.findOneAndUpdate({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
+                              if (err) {
+                                reject(err);
+                                return console.error(err);
                               }
-
-                              // add podcast if it isn't around, if not: update
-                              Podcast.findOneAndUpdate({audioSearchId: unparsedPodcast.id}, newPodcast, {upsert: true}, function (err, result) {
-                                if (err) {
-                                  reject(err);
-                                  return console.error(err);
-                                }
-                                resolve(result);
-                              });
+                              resolve(result);
+                            });
+                          } else {
+                            reject("no podcast url")
+                          }
                         })
                       )
                     });
