@@ -13,9 +13,12 @@ module.exports = function(){
     syncStation: function(stationId, callback) {
 
       Station.findById(stationId).deepPopulate('shows shows.podcasts shows.podcasts._creator').exec(function (error, station) {
+
         if (error) {
+          console.log("error", error);
           callback(null, error);
         } else if (station == null) {
+          console.log("error (null)", error);
           callback(null, error);
         } else {
           var promises = []

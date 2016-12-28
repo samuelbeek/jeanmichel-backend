@@ -91,9 +91,9 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
               sync().syncStation(station._id, function(result, error){
                 console.log("syncing station", station.title , station._id);
                 if (error) {
-                  res.send(error);
+                  reject(error);
                 } else {
-                  res.send(result);
+                  resolve(result);
                 }
               });
             })
@@ -102,6 +102,7 @@ app.post('/station/:stationId/show', middlewares.stationById, function(req, res)
 
         // if all promises succeeded, send them to thte client
         Promise.all(promises).then(function(resolvedPromises) {
+          console.log("finished");
           res.send(resolvedPromises);
         });
 
