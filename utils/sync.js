@@ -37,8 +37,13 @@ module.exports = function(){
 
                         new Promise(function(resolve, reject){
 
-                          var podcastUrl = unparsedPodcast.audio_files[0].url[0];
-                          if (podcastUrl) {
+                          // TODO: make this better!!!
+                          var podcastUrl = unparsedPodcast.audio_files[0].url;
+                          if (typeof podcastUrl === "undefined" || podcastUrl.length < 8) {
+                            podcastUrl = unparsedPodcast.audio_files[0].mp3;
+                          }
+                          console.log(unparsedPodcast.audio_files);
+                          if (typeof podcastUrl !== "undefined" && podcastUrl.length > 8) {
                             // create new podcast
                             var newPodcast = {
                               title: unparsedPodcast.title,
