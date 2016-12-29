@@ -42,7 +42,7 @@ module.exports = function(){
                           if (typeof podcastUrl === "undefined" || podcastUrl.length < 8) {
                             podcastUrl = unparsedPodcast.audio_files[0].mp3;
                           }
-                          console.log(unparsedPodcast.audio_files);
+    
                           if (typeof podcastUrl !== "undefined" && podcastUrl.length > 8) {
                             // create new podcast
                             var newPodcast = {

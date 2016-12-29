@@ -28,6 +28,15 @@ module.exports = function(){
           });
       });
     },
+
+    // get show by id
+    getShowById: function(showId) {
+      return new Promise(function(resolve, reject) {
+        audiosearch.getShow(showId).then(function (results) {
+          resolve(results);
+        });
+      });
+    },
     // get shows from array of ids
     getShowsById: function(showIds) {
       return new Promise(function(resolve, reject){
